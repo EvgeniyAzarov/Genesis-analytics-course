@@ -1,6 +1,8 @@
-select avg(sessions)
+select avg(sessions_num)
 from (
-         select user_id, count(*) sessions
-         from product.user_session_end
+         select user_id, count(*) sessions_num
+         from product.users users
+                  left join product.user_session_end sessions
+                            on users.id = sessions.user_id
          group by user_id
      ) Claims

@@ -11,6 +11,6 @@ from (
               ) Claims
          group by gender, app
      ) Categories
-where more_then_two_sessions > 0.3
+where more_then_two_sessions / 100 > 0.3
 order by more_then_two_sessions desc
 
